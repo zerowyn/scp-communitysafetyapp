@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/scp-communitysafetyapp.iml" filepath="$PROJECT_DIR$/scp-communitysafetyapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/communitysafetyapp-service/scp-communitysafetyapp-service.iml" filepath="$PROJECT_DIR$/communitysafetyapp-service/scp-communitysafetyapp-service.iml" />
+    </modules>
+  </component>
+</project>

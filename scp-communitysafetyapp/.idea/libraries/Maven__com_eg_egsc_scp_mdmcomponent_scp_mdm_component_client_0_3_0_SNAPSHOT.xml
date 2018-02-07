@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.eg.egsc.scp.mdmcomponent:scp-mdm-component-client:0.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/mdmcomponent/scp-mdm-component-client/0.3.0-SNAPSHOT/scp-mdm-component-client-0.3.0-20180207.063048-80.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/mdmcomponent/scp-mdm-component-client/0.3.0-SNAPSHOT/scp-mdm-component-client-0.3.0-20180207.063048-80-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/mdmcomponent/scp-mdm-component-client/0.3.0-SNAPSHOT/scp-mdm-component-client-0.3.0-20180207.063048-80-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

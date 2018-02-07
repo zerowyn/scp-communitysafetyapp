@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.eg.egsc.scp.communitysafetyapp</groupId>
+		<artifactId>scp-communitysafetyapp</artifactId>
+		<version>0.3.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>scp-communitysafetyapp-service</artifactId>
+	<!-- <packaging>jar</packaging> -->
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<description>commonservice project for Spring Boot</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.eg.egsc.framework</groupId>
+			<artifactId>framework-dao</artifactId>
+			<version>${common.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.component</groupId>
+			<artifactId>component-redis</artifactId>
+			<version>${common.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.component</groupId>
+			<artifactId>component-sequence</artifactId>
+			<version>${common.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.component</groupId>
+			<artifactId>component-utils</artifactId>
+			<version>${common.component.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.scp.eventcomponent</groupId>
+			<artifactId>scp-event-component-client</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<!-- <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-logging</artifactId> </exclusion> </exclusions> -->
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.scp.devicemgmtcomponent</groupId>
+			<artifactId>scp-devicemgmt-component-client</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.eg.egsc.scp.mdmcomponent</groupId>
+			<artifactId>scp-mdm-component-client</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eg.egsc.framework</groupId>
+			<artifactId>framework-service</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!--排除内置的tomcat -->
+<!--			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>-->
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
+	</dependencies>
+
+	<!-- 打包插件，其中repackage、true是专门打spring boot专用包 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<excludes>
+					<exclude>env/dev/*</exclude>
+					<exclude>env/dev2/*</exclude>
+					<exclude>env/test/*</exclude>
+					<exclude>env/test2/*</exclude>
+					<exclude>env/uat/*</exclude>
+					<exclude>env/prod/*</exclude>
+				</excludes>
+				<includes>
+					<include>messages/*</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/env/${profiles.active}</directory>
+			</resource>
+		</resources>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profiles.active>dev</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>dev2</id>
+			<properties>
+				<profiles.active>dev2</profiles.active>
+			</properties>
+<!--			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>-->
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<profiles.active>test</profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>test2</id>
+			<properties>
+				<profiles.active>test2</profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<profiles.active>uat</profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profiles.active>prod</profiles.active>
+			</properties>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.eg.egsc.scp.devicemgmtcomponent:scp-devicemgmt-component-client:0.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/devicemgmtcomponent/scp-devicemgmt-component-client/0.3.0-SNAPSHOT/scp-devicemgmt-component-client-0.3.0-20180207.024338-41.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/devicemgmtcomponent/scp-devicemgmt-component-client/0.3.0-SNAPSHOT/scp-devicemgmt-component-client-0.3.0-20180207.024338-41-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/eg/egsc/scp/devicemgmtcomponent/scp-devicemgmt-component-client/0.3.0-SNAPSHOT/scp-devicemgmt-component-client-0.3.0-20180207.024338-41-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

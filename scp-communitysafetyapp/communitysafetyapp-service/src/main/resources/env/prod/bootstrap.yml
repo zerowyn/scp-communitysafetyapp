@@ -1,0 +1,32 @@
+server:
+  port: 9065
+  context-path: /
+spring: 
+  application:
+    name: scp-communitysafetyapp
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.0.235:8761/eureka/,http://192.168.0.234:8761/eureka/
+  instance:
+    statusPageUrlPath: /swagger-ui.html
+    lease-expiration-duration-in-seconds: 30 
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true
+    metadata-map:
+      weight: 11
+#logging:
+#  level:
+#    root: INFO
+#    org.springframework.security: INFO
+#    com.mybatis: DEBUG
+
+management:
+  security:
+    enabled: false
+
+security:
+  basic:
+    enabled: false
+gateway:
+    service-url: http://192.168.0.242:30940
